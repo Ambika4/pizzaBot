@@ -1,0 +1,29 @@
+{
+  "name": "pizzabot",
+  "version": "1.0.0",
+  "description": "A bot which can take pizza details and user details while ordering the pizza",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ambika4/pizzaBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ambika4/pizzaBot/issues"
+  },
+  "homepage": "https://github.com/Ambika4/pizzaBot#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dialogflow": "^1.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.5",
+    "node-sass-middleware": "^0.11.0",
+    "uuid": "^7.0.1"
+  }
+}
