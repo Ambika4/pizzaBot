@@ -2,32 +2,8 @@ var $messages = $('.messages-content');
 var serverResponse = "wala";
 
 
-var suggession;
-//speech reco
-try {
-  var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  var recognition = new SpeechRecognition();
-}
-catch(e) {
-  console.error(e);
-  $('.no-browser-support').show();
-}
-
-$('#start-record-btn').on('click', function(e) {
-  recognition.start();
-});
-
-recognition.onresult = (event) => {
-  const speechToText = event.results[0][0].transcript;
- document.getElementById("MSG").value= speechToText;
-  //console.log(speechToText)
-  insertMessage()
-}
-
-
 function listendom(no){
   console.log(no)
-  //console.log(document.getElementById(no))
 document.getElementById("MSG").value= no.innerHTML;
   insertMessage();
 }
@@ -65,8 +41,7 @@ function insertMessage() {
 document.getElementById("mymsg").onsubmit = (e)=>{
   e.preventDefault() 
   insertMessage();
-  //serverMessage("hello");
-  speechSynthesis.speak( new SpeechSynthesisUtterance("hello"))
+
 }
 
 function serverMessage(response2) {
@@ -90,8 +65,8 @@ function serverMessage(response2) {
 
 function fetchmsg(){
 
-     var url = 'https://pizza-bot-yo.herokuapp.com/send-msg';
-       //var url ='http://localhost:8000/send-msg'
+     //var url = 'https://pizza-bot-yo.herokuapp.com/send-msg';
+      var url ='http://localhost:8000/send-msg'
       const data = new URLSearchParams();
       for (const pair of new FormData(document.getElementById("mymsg"))) {
           data.append(pair[0], pair[1]);
@@ -106,7 +81,6 @@ function fetchmsg(){
          .then(response => {
           console.log(response);
           serverMessage(response.Reply);
-          speechSynthesis.speak( new SpeechSynthesisUtterance(response.Reply));
         
           
          })
